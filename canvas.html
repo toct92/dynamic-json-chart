@@ -1,0 +1,53 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+	<script type="text/javascript" src="dynamic-json-chart-1.js"></script>
+	<style>
+		#canvas {       
+			padding: 0;
+			margin: 0 auto;       
+		}
+
+		@media(min-width:500px) {      
+			#canvas {
+				width: 100%;
+				height: 80%;
+			}
+		}
+	</style>
+	<title>Dynamic JSON Chart Demo</title>
+</head>
+
+<body>
+	<center><canvas id="canvas" style="border:1px solid #000000;"></canvas></center>
+	<script>
+		canvas = document.getElementById('canvas');
+		//alert(canvas.offsetLeft);
+		SCHEMA_GEN.generate([//Node Data 
+							{"key": ["desc_line_1", "desc_line_2"], "level": "0", "entity": "Node_1_Title"}, 
+							{"key": ["desc_line_1", "desc_line_2"], "level": "1", "entity": "Node_2_Title"}, 
+							{"key": ["desc_line_1"], "level": "1", "entity": "Node_3_Title"}, 
+							{"key": ["desc_line_1", "desc_line_2"], "level": "1", "entity": "Node_4_Title"}, 
+							{"key": ["desc_line_1", "desc_line_2"], "level": "2", "entity": "Node_5_Title"}, 
+							{"key": ["desc_line_1"], "level": "2", "entity": "Node_6_Title"}],
+							
+		
+							[//Link Data
+							{"link": "ACCOUNT_PK", "from": "Node_1_Title", "to": "Node_2_Title"}, 
+							{"link": "ACCOUNT_PK", "from": "Node_1_Title", "to": "Node_3_Title"}, 
+							{"link": "ACCOUNT_PK", "from": "Node_1_Title", "to": "Node_4_Title"}, 
+							{"link": "ACCOUNT_PK", "from": "Node_2_Title", "to": "Node_5_Title"}, 
+							{"link": "ACCOUNT_PK", "from": "Node_2_Title", "to": "Node_6_Title"}],
+							//canvas Object
+							canvas);				
+		
+		// Code too Enable Drag functionality
+		$("#canvas").mousedown(function(e){SCHEMA_GEN.handleMouseDown(e);});
+		$("#canvas").mousemove(function(e){SCHEMA_GEN.handleMouseMove(e);});
+		$("#canvas").mouseup(function(e){SCHEMA_GEN.handleMouseUp(e);});
+					
+			
+			
+	</script>
+</body>
+</html>
