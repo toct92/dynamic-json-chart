@@ -1,7 +1,9 @@
-# dynamic-json-chart
+# dynamic-json-chart   
 Lightweight dynamic flow chart generator from json objects
 
 The dynamic JSON chart creates rich flow chart wherein the user can give inputs for the the data in nodes, the links data between the nodes and also linking text. It is also interactive, i.e you can drag the nodes at your will and the links will be re-rendered to make the chart readable at all times.
+
+Click to view a <a href="https://rawgit.com/toct92/dynamic-json-chart/master/canvas.html">DEMO</a><br>
 
 To create a chart, use the generate function:
 ```
